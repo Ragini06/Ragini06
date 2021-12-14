@@ -1,0 +1,47 @@
+
+
+.table_header {
+    padding: 1rem;
+    background-color: rgb(31, 31, 31);
+    margin: 0.5rem auto;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+  }
+  
+  .table_header th {
+    font-family: 'Roboto';
+    padding-left: 50px;
+    padding-right: 10px;
+    color: white;
+    width:150px;
+    text-align:center;
+  }
+  .row td{
+    font-family: 'Roboto';
+    padding-left: 50px;
+    padding-right: 10px;
+    color: rgb(197, 25, 25);
+    width:150px;
+    text-align:center;
+  }
+
+  .row tr{
+    margin: 1rem auto;
+  }
+
+  .row{
+    padding: 1rem;
+    background-color: rgb(202, 194, 194);
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    
+  }
+  
