@@ -39,9 +39,6 @@ const Table = () => {
         ).toFixed(2);
       }
       
-      
-
-
 
       return (
         <React.Fragment>
@@ -49,7 +46,10 @@ const Table = () => {
           {values[index].rate_float.toFixed(2)}
           </td>
           <td>
-          {prevValuesExist ? (diff > 0 ? '+' + diff : diff) : 0.0}
+          {prevValuesExist ? diff > 0
+              ? '⬆' + diff
+              : '⬇' + Math.abs(diff)
+            : 0.0}
         </td>
         </React.Fragment>
         
