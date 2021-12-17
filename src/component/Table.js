@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { isEmpty } from "lodash";
-import '@fontsource/roboto';
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
+import '@fontsource/roboto/400.css';
+import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 
 import "./Table.css";
 const Table = () => {
@@ -26,17 +28,19 @@ const Table = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(()=>{
-    var tempArray=[...coinArray];
+  useEffect(() => {
+    // var tempArray = [...coinArray];
+    
     // tempArray.push(bitData);
-    tempArray= [bitData].concat(tempArray);
-    setCoinArray(tempArray)
-  },[bitData])
+    // tempArray = [bitData.bpi].concat(tempArray);
+    setCoinArray([bitData.bpi,...coinArray]);
+  }, [bitData]);
 
-  useEffect(()=>{
-    console.log(coinArray,'coinarray')
-  },[coinArray])
+  // useEffect(() => {
+    
+  // }, [coinArray]);
 
+  console.log(coinArray);
   function formatBitData(bpi, prevBpi) {
     let diff = 0;
     if (isEmpty(bpi)) return <p>Loading...</p>;
@@ -56,9 +60,9 @@ const Table = () => {
           <td>
             {prevValuesExist
               ? diff > 0
-                ? "⬆" + diff
-                : "⬇" + Math.abs(diff)
-              : 0.0}
+              ? '⬆' + diff
+              : '⬇' + Math.abs(diff)
+            : 0.0}
           </td>
         </React.Fragment>
       );
@@ -72,10 +76,9 @@ const Table = () => {
         {bitData.chartName}
       </Typography>
       <Typography>
-      Last updated Time :{bitData && bitData.time && bitData.time.updateduk}
-      
+        Last updated Time :{bitData && bitData.time && bitData.time.updateduk}
       </Typography>
-     
+
       <table className="table_header" id="table">
         <thead>
           <tr>
@@ -88,8 +91,14 @@ const Table = () => {
           </tr>
         </thead>
 
-        <tbody className="row">{formatBitData(bpi, prevBpi)}</tbody>
+        <tbody className="row">
+          <tr>{formatBitData(bpi, prevBpi)}</tr>
+          <tr>
+          {/* {<ArrowUpwardOutlinedIcon color="success"/>} */}
+          </tr>
+        </tbody>
       </table>
+    
     </div>
   );
 };
